@@ -1,7 +1,8 @@
 "use strict";
 
-let self = function(a,p){
-	
+let self = function(a){
+	//a = instancia of app
+	this.key = a.key;
 }
 
 //@route('/demo/plain')
@@ -13,7 +14,7 @@ self.prototype.plain = function(req,res){
 //@route('/demo/json')
 //@method(['get'])
 self.prototype.json = function(req,res){
-	res.send({data: {title: "respuesta json", name: "trascender.router"}});
+	res.send({data: {title: "respuesta json", name: "trascender.router", key: this.key}});
 }
 
 module.exports = self;
