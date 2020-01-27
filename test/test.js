@@ -12,6 +12,23 @@ let app = function(){
 		//create server whit express
 		this.server = http.Server(this.express);
 		
+		//create function to valid roles (required to auth)
+		this.hasRole = function(roles){
+			return function(req,res,next){
+				if(roles==undefined || roles.length==0){
+					return next();
+				}else if(req.query.role){
+					if(roles.indexOf(req.query.role)>-1){
+						next();
+					}else{
+						res.send({message: "auth required"});
+					}
+				}else{
+					res.send({message: "auth required"});
+				}
+			}
+		}
+		
 		//create router
 		new router(this,__dirname + "/module");
 		

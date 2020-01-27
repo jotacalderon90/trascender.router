@@ -17,4 +17,11 @@ self.prototype.json = function(req,res){
 	res.send({data: {title: "respuesta json", name: "trascender.router", key: this.key}});
 }
 
+//@route('/demo/json/auth')
+//@method(['get'])
+//@roles(['user'])
+self.prototype.json = function(req,res){
+	res.send({data: {title: "respuesta json", name: "trascender.router", key: this.key}});
+}
+
 module.exports = self;
