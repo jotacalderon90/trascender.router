@@ -1,6 +1,6 @@
 const http = require("http");
 const express = require("express");
-const router = require("../app");
+const router = require("./app");
 let app = function(){
 	try{
 		//create instance express

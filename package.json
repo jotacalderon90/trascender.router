@@ -1,9 +1,31 @@
 {
-	"name": "cl.jotacalderon.trascender.router",
-	"description": "Enrutador para expressjs",
-	"version": "0.0.1",
-	"private": true,
-	"dependencies": {
-		"express": "^4.16.3"
-	}
+  "name": "trascender.router",
+  "description": "Enrutador para expressjs",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jotacalderon90/trascender.router.git"
+  },
+  "keywords": [
+    "expressjs",
+    "router"
+  ],
+  "author": "jotace",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jotacalderon90/trascender.router/issues"
+  },
+  "homepage": "https://github.com/jotacalderon90/trascender.router#readme"
 }
