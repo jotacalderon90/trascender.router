@@ -43,7 +43,11 @@ const self = function(app,folder){
 				roles = eval(extract(data,"@roles(",")"));
 			}
 			for(let y=0;y<method.length;y++){
-				app.express[method[y]](uri, app.hasRole(roles), getAPI(a,action));
+				if(app.hasRole){
+					app.express[method[y]](uri, app.hasRole(roles), getAPI(a,action));
+				}else{
+					app.express[method[y]](uri, getAPI(a,action));
+				}
 			}
 		}
 	}
