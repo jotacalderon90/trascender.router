@@ -12,6 +12,14 @@ let app = function(){
 		//create server whit express
 		this.server = http.Server(this.express);
 		
+		//create function to set type (required to trascender framework)
+		this.setType = function(type){
+			return function(req,res,next){
+				req.type = type;
+				next();
+			}
+		}
+		
 		//create function to valid roles (required to auth)
 		this.hasRole = function(roles){
 			return function(req,res,next){
