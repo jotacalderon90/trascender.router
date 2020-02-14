@@ -43,8 +43,8 @@ const self = function(app,folder){
 				roles = eval(extract(data,"@roles(",")"));
 			}
 			for(let y=0;y<method.length;y++){
-				if(app.setType && app.hasRole){
-					app.express[method[y]](uri, app.setType("API"), app.hasRole(roles), getAPI(a,action));
+				if(app.beforeExecute){
+					app.express[method[y]](uri, app.beforeExecute({type: "API", roles: roles}), getAPI(a,action));
 				}else{
 					app.express[method[y]](uri, getAPI(a,action));
 				}

@@ -12,27 +12,25 @@ let app = function(){
 		//create server whit express
 		this.server = http.Server(this.express);
 		
-		//create function to set type (required to trascender framework)
-		this.setType = function(type){
+		//optional: function to execute before api action
+		this.beforeExecute = function(params){
 			return function(req,res,next){
-				req.type = type;
-				next();
-			}
-		}
-		
-		//create function to valid roles (required to auth)
-		this.hasRole = function(roles){
-			return function(req,res,next){
-				if(roles==undefined || roles.length==0){
-					return next();
-				}else if(req.query.role){
-					if(roles.indexOf(req.query.role)>-1){
-						next();
+				try{
+					req.type = params.type;
+					if(params.roles==undefined || params.roles.length==0){
+						return next();
+					}else if(req.query.role){
+						if(params.roles.indexOf(req.query.role)>-1){
+							next();
+						}else{
+							res.send({message: "auth required"});
+						}
 					}else{
 						res.send({message: "auth required"});
 					}
-				}else{
-					res.send({message: "auth required"});
+				}catch(e){
+					console.error(e);
+					return next();
 				}
 			}
 		}
