@@ -29,7 +29,7 @@ const self = function(app,folder){
 	api.sort();
 	for(let i=0;i<api.length;i++){
 		let b = api[i];
-		console.log(new Date() + " == publicando api " + b);
+		console.log(new Date().toLowerCase + " == publicando api " + b);
 		let c = fs.readFileSync(folder + "/" + b,"utf-8");
 		let a = new (require(folder + "/" + b))(app);
 		let r = c.split("//@route");
