@@ -1,7 +1,7 @@
 {
   "name": "trascender.router",
   "description": "Enrutador para expressjs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "dependencies": {
     "express": "^4.16.3"
   },
